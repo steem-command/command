@@ -1,0 +1,940 @@
+{
+  "transfer": {
+    "name": "Transfer",
+    "authority": "active",
+    "category": "wallet",
+    "description": "Transfers asset from one account to another.",
+    "schema": {
+      "from": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "to": {
+        "type": "account"
+      },
+      "amount": {
+        "type": "asset"
+      },
+      "memo": {
+        "type": "string",
+        "defaultValue": ""
+      }
+    }
+  },
+  "delegate_vesting_shares": {
+    "name": "Delegate Steem Power",
+    "authority": "active",
+    "category": "wallet",
+    "schema": {
+      "delegator": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "delegatee": {
+        "type": "account"
+      },
+      "vesting_shares": {
+        "type": "asset"
+      }
+    }
+  },
+  "transfer_to_vesting": {
+    "name": "Power up",
+    "authority": "active",
+    "category": "wallet",
+    "schema": {
+      "from": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "to": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "amount": {
+        "type": "asset"
+      }
+    }
+  },
+  "withdraw_vesting": {
+    "name": "Power down",
+    "authority": "active",
+    "category": "wallet",
+    "schema": {
+      "account": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "vesting_shares": {
+        "type": "asset"
+      }
+    }
+  },
+  "transfer_to_savings": {
+    "name": "Transfer to saving",
+    "authority": "active",
+    "category": "wallet",
+    "schema": {
+      "from": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "to": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "amount": {
+        "type": "asset"
+      },
+      "memo": {
+        "type": "string",
+        "defaultValue": ""
+      }
+    }
+  },
+  "convert": {
+    "name": "Convert",
+    "authority": "active",
+    "category": "wallet",
+    "schema": {
+      "owner": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "requestid": {
+        "type": "int"
+      },
+      "amount": {
+        "type": "asset"
+      }
+    }
+  },
+  "account_witness_vote": {
+    "name": "Witness vote",
+    "authority": "active",
+    "category": "witness",
+    "schema": {
+      "account": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "witness": {
+        "type": "account"
+      },
+      "approve": {
+        "type": "bool",
+        "defaultValue": true
+      }
+    }
+  },
+  "account_witness_proxy": {
+    "name": "Witness proxy",
+    "authority": "active",
+    "category": "witness",
+    "schema": {
+      "account": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "proxy": {
+        "type": "account"
+      }
+    }
+  },
+  "claim_account": {
+    "name": "Claim account",
+    "authority": "active",
+    "category": "account",
+    "schema": {
+      "creator": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "fee": {
+        "type": "asset",
+        "defaultValue": "0.000 STEEM"
+      },
+      "extensions": {
+        "type": "array",
+        "defaultValue": []
+      }
+    }
+  },
+  "vote": {
+    "name": "Vote",
+    "authority": "posting",
+    "category": "post",
+    "schema": {
+      "voter": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "author": {
+        "type": "account"
+      },
+      "permlink": {
+        "type": "string"
+      },
+      "weight": {
+        "type": "int",
+        "defaultValue": 10000
+      }
+    }
+  },
+  "limit_order_create": {
+    "name": "Create limit order",
+    "authority": "active",
+    "category": "market",
+    "schema": {
+      "owner": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "orderid": {
+        "type": "int"
+      },
+      "amount_to_sell": {
+        "type": "asset"
+      },
+      "min_to_receive": {
+        "type": "asset"
+      },
+      "fill_or_kill": {
+        "type": "bool"
+      },
+      "expiration": {
+        "type": "time"
+      }
+    }
+  },
+  "limit_order_create2": {
+    "name": "Create limit order",
+    "authority": "active",
+    "category": "market",
+    "schema": {
+      "owner": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "orderid": {
+        "type": "int"
+      },
+      "amount_to_sell": {
+        "type": "asset"
+      },
+      "exchange_rate": {
+        "type": "object"
+      },
+      "fill_or_kill": {
+        "type": "bool"
+      },
+      "expiration": {
+        "type": "time"
+      }
+    }
+  },
+  "limit_order_cancel": {
+    "name": "Cancel limit order",
+    "authority": "active",
+    "category": "market",
+    "schema": {
+      "owner": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "orderid": {
+        "type": "int"
+      }
+    }
+  },
+  "claim_reward_balance": {
+    "name": "Redeem rewards",
+    "authority": "posting",
+    "category": "wallet",
+    "schema": {
+      "account": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "reward_steem": {
+        "type": "asset"
+      },
+      "reward_sbd": {
+        "type": "asset"
+      },
+      "reward_vests": {
+        "type": "asset"
+      }
+    }
+  },
+  "comment": {
+    "name": "Post or comment",
+    "authority": "posting",
+    "category": "post",
+    "schema": {
+      "parent_author": {
+        "type": "account",
+        "defaultValue": ""
+      },
+      "parent_permlink": {
+        "type": "string"
+      },
+      "author": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "permlink": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "body": {
+        "type": "string"
+      },
+      "json_metadata": {
+        "type": "string"
+      }
+    }
+  },
+  "custom_json": {
+    "name": "Custom operation",
+    "authority": "posting",
+    "category": "custom",
+    "schema": {
+      "required_auths": {
+        "type": "array",
+        "defaultValue": []
+      },
+      "required_posting_auths": {
+        "name": "posting auths",
+        "type": "array",
+        "defaultValue": ["__signer"]
+      },
+      "id": {
+        "type": "string"
+      },
+      "json": {
+        "type": "json"
+      }
+    }
+  },
+  "account_update": {
+    "name": "Update account",
+    "authority": "active",
+    "category": "account",
+    "schema": {
+      "account": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "memo_key": {
+        "type": "string"
+      },
+      "json_metadata": {
+        "type": "json"
+      }
+    }
+  },
+  "account_update2": {
+    "name": "Update account",
+    "authority": "posting",
+    "category": "account",
+    "schema": {
+      "account": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "memo_key": {
+        "type": "string"
+      },
+      "json_metadata": {
+        "type": "json"
+      },
+      "posting_json_metadata": {
+        "type": "json"
+      }
+    }
+  },
+  "create_proposal": {
+    "name": "Create proposal",
+    "authority": "active",
+    "category": "sps",
+    "schema": {
+      "creator": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "receiver": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "start_date": {
+        "type": "time"
+      },
+      "end_date": {
+        "type": "time"
+      },
+      "daily_pay": {
+        "type": "asset"
+      },
+      "subject": {
+        "type": "string"
+      },
+      "permlink": {
+        "type": "string"
+      },
+      "extensions": {
+        "type": "array",
+        "defaultValue": []
+      }
+    }
+  },
+  "remove_proposal": {
+    "name": "Remove proposal",
+    "authority": "active",
+    "category": "sps",
+    "schema": {
+      "proposal_owner": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "proposal_ids": {
+        "type": "array"
+      },
+      "extensions": {
+        "type": "array",
+        "defaultValue": []
+      }
+    }
+  },
+  "update_proposal_votes": {
+    "name": "Update proposal votes",
+    "authority": "active",
+    "category": "sps",
+    "schema": {
+      "voter": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "proposal_ids": {
+        "type": "array"
+      },
+      "approve": {
+        "type": "bool",
+        "defaultValue": true
+      },
+      "extensions": {
+        "type": "array",
+        "defaultValue": []
+      }
+    }
+  },
+  "change_recovery_account": {
+    "name": "Change recovery account",
+    "authority": "owner",
+    "category": "account",
+    "schema": {
+      "account_to_recover": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "new_recovery_account": {
+        "type": "account"
+      },
+      "extensions": {
+        "type": "array",
+        "defaultValue": []
+      }
+    }
+  },
+  "escrow_transfer": {
+    "name": "Escrow transfer",
+    "authority": "active",
+    "category": "escrow",
+    "schema": {
+      "from": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "to": {
+        "type": "account"
+      },
+      "agent": {
+        "type": "account"
+      },
+      "escrow_id": {
+        "type": "int"
+      },
+      "sbd_amount": {
+        "type": "asset"
+      },
+      "steem_amount": {
+        "type": "asset"
+      },
+      "fee": {
+        "type": "asset",
+        "defaultValue": "0.000 STEEM"
+      },
+      "ratification_deadline": {
+        "type": "time"
+      },
+      "escrow_expiration": {
+        "type": "time"
+      },
+      "json_meta": {
+        "type": "json"
+      }
+    }
+  },
+  "escrow_dispute": {
+    "name": "Dispute escrow",
+    "authority": "active",
+    "category": "escrow",
+    "schema": {
+      "from": {
+        "type": "account"
+      },
+      "to": {
+        "type": "account"
+      },
+      "agent": {
+        "type": "account"
+      },
+      "who": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "escrow_id": {
+        "type": "int"
+      }
+    }
+  },
+  "escrow_release": {
+    "name": "Escrow release",
+    "authority": "active",
+    "category": "escrow",
+    "schema": {
+      "from": {
+        "type": "account"
+      },
+      "to": {
+        "type": "account"
+      },
+      "agent": {
+        "type": "account"
+      },
+      "who": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "receiver": {
+        "type": "account"
+      },
+      "escrow_id": {
+        "type": "int"
+      },
+      "sbd_amount": {
+        "type": "asset"
+      },
+      "steem_amount": {
+        "type": "asset"
+      }
+    }
+  },
+  "escrow_approve": {
+    "name": "Escrow approve",
+    "authority": "active",
+    "category": "escrow",
+    "schema": {
+      "from": {
+        "type": "account"
+      },
+      "to": {
+        "type": "account"
+      },
+      "agent": {
+        "type": "account"
+      },
+      "who": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "approve": {
+        "type": "bool",
+        "defaultValue": true
+      }
+    }
+  },
+  "transfer_from_savings": {
+    "name": "Transfer from savings",
+    "authority": "active",
+    "category": "wallet",
+    "schema": {
+      "from": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "to": {
+        "type": "account"
+      },
+      "request_id": {
+        "type": "int"
+      },
+      "amount": {
+        "type": "asset"
+      },
+      "memo": {
+        "type": "string",
+        "defaultValue": ""
+      }
+    }
+  },
+  "set_withdraw_vesting_route": {
+    "name": "Set witdraw vesting route",
+    "authority": "active",
+    "category": "wallet",
+    "schema": {
+      "from_account": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "to_account": {
+        "type": "account"
+      },
+      "percent": {
+        "type": "int"
+      },
+      "auto_vest": {
+        "type": "bool",
+        "defaultValue": true
+      }
+    }
+  },
+  "cancel_transfer_from_savings": {
+    "name": "Cancel transfer from saving",
+    "authority": "active",
+    "category": "wallet",
+    "schema": {
+      "from": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "request_id": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": {
+    "name": "Custom",
+    "authority": "active",
+    "category": "custom",
+    "schema": {
+      "required_auths": {
+        "type": "object"
+      },
+      "id": {
+        "type": "string"
+      },
+      "data": {
+        "type": "buffer"
+      }
+    }
+  },
+  "custom_binary": {
+    "name": "Custom binary",
+    "authority": "posting",
+    "category": "custom",
+    "schema": {
+      "required_auths": {
+        "type": "array",
+        "defaultValue": []
+      },
+      "required_posting_auths": {
+        "name": "posting auths",
+        "type": "array"
+      },
+      "required_active_auths": {
+        "name": "active auths",
+        "type": "array"
+      },
+      "required_owner_auths": {
+        "name": "owner auths",
+        "type": "array"
+      },
+      "id": {
+        "type": "string"
+      },
+      "data": {
+        "type": "buffer"
+      }
+    }
+  },
+  "delete_comment": {
+    "name": "Delete comment",
+    "authority": "posting",
+    "category": "post",
+    "schema": {
+      "author": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "permlink": {
+        "type": "string"
+      }
+    }
+  },
+  "comment_options": {
+    "name": "Comment options",
+    "authority": "posting",
+    "category": "post",
+    "schema": {
+      "author": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "permlink": {
+        "type": "string"
+      },
+      "max_accepted_payout": {
+        "type": "asset",
+        "defaultValue": "1000000.000 SBD"
+      },
+      "percent_steem_dollars": {
+        "type": "int",
+        "defaultValue": 10000
+      },
+      "allow_votes": {
+        "type": "bool",
+        "defaultValue": true
+      },
+      "allow_curation_rewards": {
+        "type": "bool",
+        "defaultValue": true
+      },
+      "extensions": {
+        "type": "array",
+        "defaultValue": []
+      }
+    }
+  },
+  "witness_update": {
+    "name": "Witness update",
+    "authority": "active",
+    "category": "witness",
+    "schema": {
+      "owner": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "url": {
+        "type": "string"
+      },
+      "block_signing_key": {
+        "type": "string"
+      },
+      "props": {
+        "type": "object"
+      },
+      "fee": {
+        "type": "asset",
+        "defaultValue": "0.000 STEEM"
+      }
+    }
+  },
+  "witness_set_properties": {
+    "name": "Witness set properties",
+    "notReady": true,
+    "authority": "signing",
+    "category": "witness",
+    "schema": {
+      "owner": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "props": {
+        "type": "object"
+      },
+      "extensions": {
+        "type": "array",
+        "defaultValue": []
+      }
+    }
+  },
+  "feed_publish": {
+    "name": "Feed publish",
+    "authority": "active",
+    "category": "witness",
+    "schema": {
+      "publisher": {
+        "type": "string"
+      },
+      "exchange_rate": {
+        "type": "object"
+      }
+    }
+  },
+  "create_claimed_account": {
+    "name": "Create claimed account",
+    "authority": "active",
+    "category": "account",
+    "schema": {
+      "creator": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "new_account_name": {
+        "type": "account"
+      },
+      "owner": {
+        "type": "object"
+      },
+      "active": {
+        "type": "object"
+      },
+      "posting": {
+        "type": "object"
+      },
+      "memo_key": {
+        "type": "string"
+      },
+      "json_metadata": {
+        "type": "json"
+      },
+      "extensions": {
+        "type": "array",
+        "defaultValue": []
+      }
+    }
+  },
+  "recover_account": {
+    "name": "Recover account",
+    "notReady": true,
+    "authority": ["recent_owner_authority", "new_owner_authority"],
+    "description": "This transaction must be signed by recent_owner_authority and new_owner_authority",
+    "category": "account",
+    "schema": {
+      "account_to_recover": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "new_owner_authority": {
+        "type": "object"
+      },
+      "recent_owner_authority": {
+        "type": "object"
+      },
+      "extensions": {
+        "type": "array",
+        "defaultValue": []
+      }
+    }
+  },
+  "request_account_recovery": {
+    "name": "Request account recovery",
+    "notReady": true,
+    "authority": [],
+    "description": "Requires the active signature of the recovery_account",
+    "category": "account",
+    "schema": {
+      "recovery_account": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "account_to_recover": {
+        "type": "account"
+      },
+      "new_owner_authority": {
+        "type": "object"
+      },
+      "extensions": {
+        "type": "array",
+        "defaultValue": []
+      }
+    }
+  },
+  "decline_voting_rights": {
+    "name": "Decline voting rights",
+    "authority": "owner",
+    "category": "account",
+    "schema": {
+      "account": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "decline": {
+        "type": "bool",
+        "defaultValue": true
+      }
+    }
+  },
+  "account_create": {
+    "name": "Account create",
+    "authority": "active",
+    "category": "account",
+    "schema": {
+      "fee": {
+        "type": "asset",
+        "defaultValue": "0.000 STEEM"
+      },
+      "creator": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "new_account_name": {
+        "type": "account",
+        "defaultValue": "__signer"
+      },
+      "owner": {
+        "type": "object"
+      },
+      "active": {
+        "type": "object"
+      },
+      "posting": {
+        "type": "object"
+      },
+      "memo_key": {
+        "type": "string"
+      },
+      "json_metadata": {
+        "type": "json"
+      }
+    }
+  },
+  "pow": {
+    "name": "POW",
+    "authority": "active",
+    "category": "witness",
+    "schema": {
+      "props": {
+        "type": "object"
+      },
+      "work": {
+        "type": "object"
+      },
+      "nonce": {
+        "type": "int"
+      },
+      "block_id": {
+        "type": "string"
+      },
+      "worker_account": {
+        "type": "account"
+      }
+    }
+  },
+  "pow2": {
+    "name": "POW 2",
+    "authority": "active",
+    "category": "witness",
+    "schema": {
+      "imput": {
+        "type": "string"
+      },
+      "pow_summary": {
+        "type": "string"
+      }
+    }
+  }
+}
