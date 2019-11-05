@@ -9,9 +9,6 @@
 
       <div>
         <router-link to="/about">About</router-link> |&nbsp;
-        <a href="https://store.chrome.com" target="_blank">Companion</a> |&nbsp;
-        <a href="https://steemstudios.com" target="_blank">Solutions</a> |&nbsp;
-        <a href="https://steemian.net" target="_blank">Community</a> |&nbsp;
         <a href="https://steeminc.com/contact" target="_blank">Contact</a>
         |&nbsp;
         <a href="https://github.com/steem-cmd/web/issues" target="_blank"
