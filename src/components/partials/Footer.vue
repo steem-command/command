@@ -3,7 +3,7 @@
     <small class="justified">
       <div>
         Developed by
-        <a href="https://steeminc.com" target="_blank">Steem Inc</a> and the
+        <a href="https://steemstudios.com" target="_blank">Steem Studios</a> and the
         <a href="https://steem.institute" target="_blank">Steem Institute</a>.
       </div>
 

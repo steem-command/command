@@ -10,7 +10,7 @@
         <a-divider></a-divider>
         <p>
           Developed by
-          <a href="https://steeminc.com" trget="_blank">Steem Inc</a> and the
+          <a href="https://steemstudios.com" trget="_blank">Steem Studios</a> and the
           <a href="https://steem.institute" target="_blank">Steem Institute</a>.
         </p>
       </div>
