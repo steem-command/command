@@ -9,7 +9,7 @@
 
       <div>
         <router-link to="/about">About</router-link> |&nbsp;
-        <a href="https://steeminc.com/contact" target="_blank">Contact</a>
+        <a href="https://steemstudios.com/contact" target="_blank">Contact</a>
         |&nbsp;
         <a href="https://github.com/steem-cmd/web/issues" target="_blank"
           >Issues</a
