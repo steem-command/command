@@ -30,18 +30,9 @@ module.exports = {
             "/explore", "/explore/account", "/explore/network",
             "/manage", "/manage/cast", "manage/metadata", "manage/auth", "/manage/witness" 
           ],
-          minify: {
-            collapseBooleanAttributes: true,
-            collapseWhitespace: true,
-            decodeEntities: true,
-            keepClosingSlash: true,
-            sortAttributes: true
-          },
           renderer: new Renderer({
             timeout: 60000,
-            maxConcurrentRoutes: 20,
-            // renderAfterTime: 10000,
-            headless: false,
+            headless: true,
             renderAfterDocumentEvent: 'render-event',
             renderAfterElementExists: '#app'
           })
@@ -49,11 +40,19 @@ module.exports = {
       ]
     }
   }
-  */,
+  */
+  ,
   pwa: {
-    workboxPluginMode: 'InjectManifest',
+    /*
+    name: 'Steem Command',
+    themeColor: '#4DBA87',
+    msTileColor: '#000000',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black',
+    */
     workboxOptions: {
-      swSrc: "public/service-worker.js",
-    },
+      skipWaiting: true,
+      clientsClaim: true
+    }
   }
 }
