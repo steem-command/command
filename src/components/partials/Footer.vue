@@ -12,7 +12,9 @@
         <router-link to="/about">About</router-link> |&nbsp;
         <a href="https://steemstudios.com/contact" target="_blank">Contact</a>
         |&nbsp;
-        <a href="https://github.com/steem-command/command/issues" target="_blank"
+        <a
+          href="https://github.com/steem-command/command/issues"
+          target="_blank"
           >Issues</a
         >
         |&nbsp; <router-link to="/terms"> Terms </router-link> |&nbsp;
