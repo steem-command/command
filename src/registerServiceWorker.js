@@ -19,14 +19,13 @@ if (process.env.NODE_ENV === "production") {
     updatefound() {
       console.log("New content is downloading.");
     },
-    updated(registration) {
+    updated() {
       console.log("New content is available; please refresh.");
 
-      let confirmationResult = confirm(
+      let confirmReload = confirm(
         "New content found! Do you want to reload the app?"
       );
-      if (confirmationResult)
-        registration.waiting.postMessage({ action: "skipWaiting" });
+      if (confirmReload) window.location.reload();
     },
     offline() {
       console.log(
@@ -37,5 +36,4 @@ if (process.env.NODE_ENV === "production") {
       console.error("Error during service worker registration:", error);
     }
   });
-
 }
