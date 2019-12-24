@@ -22,28 +22,11 @@ if (process.env.NODE_ENV === "production") {
     updated(registration) {
       console.log("New content is available; please refresh.");
 
-      var snackbar = document.createElement("div");
-      document.body.appendChild(snackbar);
-
-      snackbar.innerHTML = `
-         <div
-          class="sw-snackbar"
-          style="background:#323232; color:#fff; width: 100%; max-width: 344px; height:48px; padding: 1rem; border-radius:2px; font-size: 1em; position:fixed; right:1rem; bottom: 1rem; display:flex; align-items:center; justify-content:space-between;"
-        >
-          <span>New content is available.</span>
-          <button
-            style="background:none; color:#2ecc71; font-size: 0.875em; letter-spacing:.08929em; border:none; outline:none; text-transform: uppercase; cursor: pointer;"
-          >Reload</button>
-        </div>`;
-
-      snackbar.addEventListener("click", e => {
-        if (e.target.nodeName === "BUTTON") {
-          snackbar.style.display = "none";
-          setTimeout(function() {
-            window.location.reload();
-          }, 200);
-        }
-      });
+      let confirmationResult = confirm(
+        "New content found! Do you want to reload the app?"
+      );
+      if (confirmationResult)
+        registration.waiting.postMessage({ action: "skipWaiting" });
     },
     offline() {
       console.log(
